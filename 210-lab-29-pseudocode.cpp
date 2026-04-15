@@ -47,8 +47,10 @@ int main() {
         //for each concept
             //chance for word to move from one list to another
                 //slang->casual, casual->formal
-            //chance for word to die (erase from list)
+            //chance for word to die
+                //erase word from list
             //chance for new slang to be created
+                //new_slang
 }
 
 //define fuctions
