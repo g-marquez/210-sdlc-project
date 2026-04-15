@@ -25,8 +25,14 @@ int main() {
     map<string, array<list<string>, 3>> corpus;
 
     //read data from file and populate map
+        //if file does not open, print an error and exit
+        //else read data into map
     //manually populating for the purposes of this pseudocode
-    
+    list<string> formal = {"greetings", "salutations"};
+    list<string> casual = {"hi", "hello"};
+    list<string> slang = {"hey", "wassup"};
+    array<list<string>, 3> words = {formal, casual, slang};
+    corpus.insert(make_pair("hello", words));
 }
 
 //define fuctions
