@@ -36,14 +36,14 @@ int main() {
         //insert word into appropriate formality list in the array
     //close file
     //manually populating for the purposes of this mockup
-    list<string> formal = {"greetings", "salutations"};
-    list<string> casual = {"hi", "hello"};
-    list<string> slang = {"heyyo", "wassup"};
+    list<string> formal = {"greetings", "salutations", "g'day", "hello"};
+    list<string> casual = {"hi", "howdy", "hey", "hiya"};
+    list<string> slang = {"heyyo", "wassup", "whatup", "suhdude"};
     array<list<string>, 3> words = {formal, casual, slang};
     corpus.insert(make_pair("Greeting", words));
 
     //print corpus before simulation
-    
+    print_corpus(corpus);
     
     //begin language evolution simulation
     //for 25 time intervals (generations)
@@ -55,6 +55,25 @@ int main() {
                 //erase word from list
             //chance for new slang to be created
                 //new_slang
+
+    //manually traversing map for "1 generation" for purpose of mockup
+    for (auto c : corpus) {
+        cout << "Linguistic Concept: " << c.first << "\n";
+        for (int i = 0; i < c.second.size(); ++i) {
+            auto current = c.second[i];
+            for (auto it = current.begin(); it != current.end(); ++it) {
+                cout << (*it);
+                if (next(it) != current.end()) {
+                    cout << ", ";
+                }
+            }
+            cout << endl;
+        }
+        cout << endl;
+    }
+
+    //print corpus at the end of simulation
+    print_corpus(corpus);
 }
 
 //define fuctions
