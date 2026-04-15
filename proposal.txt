@@ -14,6 +14,8 @@ formal speech. For example, for the concept 'hello,' examples of each would be
 example), and the map's value will be an array of these three lists.
 
 Simulated Events:
-The simulation will focus on four events: words moving from one tier to the next
-(i.e. slang becoming casual or casual words becoming formal), word death/extinction
-(words falling out of use), new slang being created, and revival of 
+The simulation will focus on four events: words moving from an informal tier to
+the next level of formality (i.e. slang becoming casual or casual words becoming
+formal), word death/extinction (words falling out of use), new slang being created, 
+and revival of formal vernacular back into slang (i.e. 'groovy' or 'gnarly' making 
+a comeback). During any given generation, any of these events has a chance to occur.
