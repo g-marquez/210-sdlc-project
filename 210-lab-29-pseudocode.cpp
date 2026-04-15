@@ -39,8 +39,13 @@ int main() {
     list<string> casual = {"hi", "hello"};
     list<string> slang = {"heyyo", "wassup"};
     array<list<string>, 3> words = {formal, casual, slang};
-    corpus.insert(make_pair("hello", words));
+    corpus.insert(make_pair("Greeting", words));
 
+    //print corpus before simulation
+    for (auto c : corpus) {
+        cout << "Linguistic Concept: " << 
+    }
+    
     //begin language evolution simulation
     //for 25 time intervals (generations)
         //iterate through each concept in the map
