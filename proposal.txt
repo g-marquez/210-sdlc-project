@@ -16,4 +16,4 @@ example), and the map's value will be an array of these three lists.
 Simulated Events:
 The simulation will focus on three events: a word moving from one formality category
 to another, word death/extinction (words falling out of use), and new slang being created. 
-During any given generation, any of these events has a chance to occur.
+During any given generation, any of these events has a chance to occur. 

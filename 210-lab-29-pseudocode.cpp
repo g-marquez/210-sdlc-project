@@ -60,7 +60,7 @@ int main() {
                 //new_slang
 
     //manually traversing map for "1 generation" for purpose of mockup
-    //making chances all 50% for purposes of mockup
+    //making chances all 50% for purposes of mockup (will adjust in alpha and beta)
     for (auto &c : corpus) {
         auto &lists = c.second;
         list<string> &formal = lists[FORMAL];
