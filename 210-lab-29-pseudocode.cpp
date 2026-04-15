@@ -13,10 +13,13 @@
 #include <random>
 using namespace std;
 
-//Declare function prototype(s) for different language changes
+//declare global variable
+int GENERATIONS = 25;
+
+//declare function prototype(s) for different language changes
 string new_slang(string);
 
-//Define main function
+//define main function
 int main() {
     //srand for random chances later on in simulation
     srand(time(0));
@@ -39,6 +42,9 @@ int main() {
     corpus.insert(make_pair("hello", words));
 
     //begin language evolution simulation
+    //for 25 time intervals (generations)
+        //iterate through each concept in the map
+        
 }
 
 //define fuctions
