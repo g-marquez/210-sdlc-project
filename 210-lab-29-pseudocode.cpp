@@ -67,10 +67,29 @@ int main() {
         list<string> &casual = lists[CASUAL];
         list<string> &slang  = lists[SLANG];
         
-        //chance for word to move from one list to another
+        //chance for word to move from slang->casual or casual->formal
         int prob1 = rand() % 100 + 1;
         if (prob1 <= 50) {
-            
+            if ((rand() % 100) < 50) {
+                //slang->casual
+                auto it = slang.begin();
+                casual.push_back(*it);
+                slang.erase(it);
+            }
+            else {
+                //casual->formal
+                auto it = casual.begin();
+                formal.push_back(*it);
+                casual.erase(it);
+            }
+        }
+
+        //chance for word to die
+        int prob2 = rand() % 100 + 1;
+        if (prob2 <= 50) {
+            int rand_list = rand() % 3;
+            auto it = lists[rand_list].begin();
+            lists[rand_list].erase(it);
         }
     }
 
