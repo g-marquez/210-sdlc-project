@@ -6,6 +6,14 @@ alterations to common words or phrases in a way that mimics real-life language c
 
 Implementation:
 I plan to use a std::map to store and manage a corpus of linguistic data relating
-to 
+to common word concepts (hello, goodbye, etc.) of American English. The map will
+categorize these concepts into three std::lists representing slang, casual, and
+formal speech. For example, for the concept 'hello,' examples of each would be
+'sup'(slang), 'hi'(casual), and 'greetings'(formal). The aim would be to have about
+3-4 words per list per concept. The map's key will be the concept ('hello' in this
+example), and the map's value will be an array of these three lists.
 
 Simulated Events:
+The simulation will focus on four events: words moving from one tier to the next
+(i.e. slang becoming casual or casual words becoming formal), word death/extinction
+(words falling out of use), new slang being created, and revival of 
