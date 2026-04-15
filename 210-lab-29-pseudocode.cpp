@@ -14,13 +14,15 @@
 using namespace std;
 
 //Declare function prototype(s) for different language changes
-//prototype here
+string new_slang(string);
 
 //Define main function
 int main() {
     //srand for random chances later on in simulation
     srand(time(0));
-    
+
     //initialize map to store language concepts
     map<string, array<list<string>, 3>> corpus;
+
+
 }
