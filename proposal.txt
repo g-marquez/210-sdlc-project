@@ -1,5 +1,11 @@
 Project Overview:
+My project will create a language evolution simulation, which will be designed
+to simulate how concepts and words evolve in English over the span of 25
+generations. This program will aim to demonstrate some possible sociolinguistic
+alterations to common words or phrases in a way that mimics real-life language change.
 
 Implementation:
+I plan to use a std::map to store and manage a corpus of linguistic data relating
+to 
 
 Simulated Events:
