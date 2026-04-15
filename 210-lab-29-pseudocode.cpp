@@ -24,5 +24,16 @@ int main() {
     //initialize map to store language concepts
     map<string, array<list<string>, 3>> corpus;
 
+    //read data from file and populate map
+    //manually populating for the purposes of this pseudocode
+    
+}
 
+//define fuctions
+//description: new_slang() returns a substring of the passed string to simulate
+// the creation of a new slang word
+//arguments: a string (word from the casual or formal list)
+//returns: a substring of the passed string (slang for a given word)
+string new_slang(string word) {
+    return word.substr(0, word.length() -1);
 }
