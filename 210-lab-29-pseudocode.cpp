@@ -87,9 +87,20 @@ int main() {
         //chance for word to die
         int prob2 = rand() % 100 + 1;
         if (prob2 <= 50) {
+            //randomly select one of the 3 lists to erase from
             int rand_list = rand() % 3;
             auto it = lists[rand_list].begin();
             lists[rand_list].erase(it);
+        }
+
+        //chance for new slang to be created
+        int prob3 = rand() % 100 + 1;
+        if (prob3 <= 50) {
+            //randomly choose the formal or casual index
+            int rand_index = rand() % 2;
+            auto it = lists[rand_index].begin();
+            string new_word = new_slang(*it);
+            slang.push_back(new_word);
         }
     }
 
