@@ -26,6 +26,8 @@ int main() {
 
     //initialize map to store language concepts
     map<string, array<list<string>, 3>> corpus;
+    //create formality array to help with output
+    array<string, 3> formality = {"Formal", "Casual", "Slang"};
 
     //read data from file and populate map
     //if file does not open
@@ -43,7 +45,14 @@ int main() {
 
     //print corpus before simulation
     for (auto c : corpus) {
-        cout << "Linguistic Concept: " << 
+        cout << "Linguistic Concept: " << c.first << "\n";
+        for (int i = 0; i < c.second.size(); ++i) {
+            cout << formality[i] << ": ";
+            auto current = c.second[i];
+            for (auto it = current.begin(); it != current.end(); ++it) {
+                cout << (*it);
+            }
+        }
     }
     
     //begin language evolution simulation
