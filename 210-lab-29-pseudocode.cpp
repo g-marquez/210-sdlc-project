@@ -44,9 +44,11 @@ int main() {
     //begin language evolution simulation
     //for 25 time intervals (generations)
         //iterate through each concept in the map
-        //chance for word to move from slang->casual, casual->formal
-        //chance for word to die (erase from list)
-        //chance for new slang to be created
+        //for each concept
+            //chance for word to move from one list to another
+                //slang->casual, casual->formal
+            //chance for word to die (erase from list)
+            //chance for new slang to be created
 }
 
 //define fuctions
