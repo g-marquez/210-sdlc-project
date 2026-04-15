@@ -57,8 +57,8 @@ int main() {
                 //new_slang
 
     //manually traversing map for "1 generation" for purpose of mockup
-    for (auto c : corpus) {
-        cout << "Linguistic Concept: " << c.first << "\n";
+    //making chances all 50% for purposes of mockup
+    for (auto &c : corpus) {
         for (int i = 0; i < c.second.size(); ++i) {
             auto current = c.second[i];
             for (auto it = current.begin(); it != current.end(); ++it) {
