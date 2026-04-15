@@ -25,14 +25,20 @@ int main() {
     map<string, array<list<string>, 3>> corpus;
 
     //read data from file and populate map
-        //if file does not open, print an error and exit
-        //else read data into map
-    //manually populating for the purposes of this pseudocode
+    //if file does not open
+        //print an error and exit
+    //else read data into map
+        //for each line, extract concept and word data
+        //insert word into appropriate formality list in the array
+    //close file
+    //manually populating for the purposes of this mockup
     list<string> formal = {"greetings", "salutations"};
     list<string> casual = {"hi", "hello"};
-    list<string> slang = {"hey", "wassup"};
+    list<string> slang = {"heyyo", "wassup"};
     array<list<string>, 3> words = {formal, casual, slang};
     corpus.insert(make_pair("hello", words));
+
+    //begin language evolution simulation
 }
 
 //define fuctions
