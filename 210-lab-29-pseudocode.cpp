@@ -18,6 +18,7 @@ int GENERATIONS = 25;
 
 //declare function prototype(s) for different language changes
 string new_slang(string);
+void print_corpus(map<string, array<list<string>, 3>>);
 
 //define main function
 int main() {
@@ -26,8 +27,6 @@ int main() {
 
     //initialize map to store language concepts
     map<string, array<list<string>, 3>> corpus;
-    //create formality array to help with output
-    array<string, 3> formality = {"Formal", "Casual", "Slang"};
 
     //read data from file and populate map
     //if file does not open
@@ -44,16 +43,7 @@ int main() {
     corpus.insert(make_pair("Greeting", words));
 
     //print corpus before simulation
-    for (auto c : corpus) {
-        cout << "Linguistic Concept: " << c.first << "\n";
-        for (int i = 0; i < c.second.size(); ++i) {
-            cout << formality[i] << ": ";
-            auto current = c.second[i];
-            for (auto it = current.begin(); it != current.end(); ++it) {
-                cout << (*it);
-            }
-        }
-    }
+    
     
     //begin language evolution simulation
     //for 25 time intervals (generations)
@@ -74,4 +64,27 @@ int main() {
 //returns: a substring of the passed string (slang for a given word)
 string new_slang(string word) {
     return word.substr(0, word.length() -1);
+}
+
+//description: print_corpus() prints the contents of corpus to the console
+//arguments: a map (corpus) and a string array (formality)
+//returns: a substring of the passed string (slang for a given word)
+void print_corpus(map<string, array<list<string>, 3>> corpus) {
+    //create formality array to help with output
+    array<string, 3> formality = {"Formal", "Casual", "Slang"};
+    for (auto c : corpus) {
+        cout << "Linguistic Concept: " << c.first << "\n";
+        for (int i = 0; i < c.second.size(); ++i) {
+            cout << formality[i] << ": ";
+            auto current = c.second[i];
+            for (auto it = current.begin(); it != current.end(); ++it) {
+                cout << (*it);
+                if (next(it) != current.end()) {
+                    cout << ", ";
+                }
+            }
+            cout << endl;
+        }
+        cout << endl;
+    }
 }
