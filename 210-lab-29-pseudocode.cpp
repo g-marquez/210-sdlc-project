@@ -14,7 +14,10 @@
 using namespace std;
 
 //declare global variable
-int GENERATIONS = 25;
+const int GENERATIONS = 25;
+const int FORMAL = 0;
+const int CASUAL = 1;
+const int SLANG  = 2;
 
 //declare function prototype(s) for different language changes
 string new_slang(string);
@@ -59,17 +62,16 @@ int main() {
     //manually traversing map for "1 generation" for purpose of mockup
     //making chances all 50% for purposes of mockup
     for (auto &c : corpus) {
-        for (int i = 0; i < c.second.size(); ++i) {
-            auto current = c.second[i];
-            for (auto it = current.begin(); it != current.end(); ++it) {
-                cout << (*it);
-                if (next(it) != current.end()) {
-                    cout << ", ";
-                }
-            }
-            cout << endl;
+        auto &lists = c.second;
+        list<string> &formal = lists[FORMAL];
+        list<string> &casual = lists[CASUAL];
+        list<string> &slang  = lists[SLANG];
+        
+        //chance for word to move from one list to another
+        int prob1 = rand() % 100 + 1;
+        if (prob1 <= 50) {
+            
         }
-        cout << endl;
     }
 
     //print corpus at the end of simulation
