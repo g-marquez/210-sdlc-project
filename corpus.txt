@@ -2,122 +2,98 @@ greeting
 greetings,salutations,g'day,hello
 hi,howdy,hey,hiya
 wassup,suhdude,heyo,whatup
-
 farewell
 farewell,goodbye,adieu,parting
 bye,see ya,take care,catch you later
 peace,laters,deuces,outtie
-
 friend
 companion,associate,confidant,ally
 friend,buddy,pal,mate
 bro,homie,gang,fam
-
 anger
 rage,fury,outrage,wrath
 anger,mad,upset,annoyed
 pissed,salty,heated,triggered
-
 happiness
 joy,delight,pleasure,contentment
 happy,glad,cheerful,good
 lit,hyped,stoked,amped
-
 sadness
 sorrow,melancholy,grief,despair
 sad,down,bummed,blue
 sentis,emo,in my feels,gutted
-
 intelligence
 intellect,acumen,aptitude,brilliance
 smart,sharp,clever,bright
 genie,brainiac,big brain,galaxy brain
-
 stupidity
 ignorance,folly,imbecility,absurdity
 dumb,idiot,clueless,confused
 buffoon,moron,smoothbrain,airhead
-
 food
 cuisine,meal,provisions,nourishment
 food,eats,meal,snack
 grub,chow,munchies,noms
-
 money
 currency,capital,finances,revenue
 money,cash,bucks,dough
 bread,bands,coins,stack
-
 work
 occupation,employment,profession,career
 job,work,gig,hustle
 grind,side hustle,9-5,bag chase
-
 tired
 fatigued,exhausted,weary,drained
 tired,sleepy,worn out,beat
 dead,zonked,snoring,crashed
-
 fast
 rapid,swift,expeditious,brisk
 fast,quick,speedy,hurried
 zooming,blazing,lightning,giving Flash
-
 slow
 sluggish,lethargic,delayed,unhurried
 slow,chill,lagging,taking time
 dragging,laggy,grandpa,snail
-
 attractive
 attractive,appealing,alluring,beautiful
 cute,pretty,good looking,nice
 hawt,fine,smoke show,baddie
-
 ugly
 unattractive,unsightly,foul,unappealing
 ugly,hideous,rough,awkward
 busted,mid,tragic,nah
-
 confusion
 confusion,perplexed,uncertain,bewilderment
 confused,lost,unsure,mixed up
 what,huh,bruh moment,idk
-
 approval
 approval,endorsement,acceptance,validation
 okay,good,works,fine
 bet,valid,fire,lets go
-
 disapproval
 disapproval,rejection,denial,criticism
 no,nope,not good,bad
 nah,trash,mid,weak
-
 surprise
 astonishment,amazement,shock,startlement
 surprised,wow,unexpected,shocked
 no way,wtf,yo what,bruh
-
 love
 affection,adoration,devotion,attachment
 love,like,care for,into
 obsessed,stan,heart eyes,simping
-
 fear
 fear,terror,anxiety,dread
 scared,afraid,nervous,uneasy
 shook,spooked,freaked,goosebumps
-
 success
 success,achievement,accomplish,attainment
 win,success,nailed it,worked
 dub,got it,clutch,win big
-
 failure
 failure,defeat,loss,collapse
 fail,lose,messed up,flopped
 bricked,sold,choked, L
-
 weather
 atmosphere,climate,conditions,forecast
 weather,rain,sun,cloudy

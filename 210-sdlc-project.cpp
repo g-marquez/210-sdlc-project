@@ -64,14 +64,19 @@ int main() {
             }
 
             //slang list
-            stringstream ss3(casualLine);
+            stringstream ss3(slangLine);
             string word3;
             while (getline(ss3, word3, ',')) {
-                casual.push_back(word3);
+                slang.push_back(word3);
             }
 
             words = {formal, casual, slang};
             corpus.insert(make_pair(concept, words));
+
+            //clear lists for next iteration
+            formal.clear();
+            casual.clear();
+            slang.clear();
         }
         //close file
         fin.close();
