@@ -1,7 +1,7 @@
 //*****************************************************************************
-// COMSC-210 | Lab 29 | Gabriel Marquez
-// Description: this file outlines the major steps and blocks of code necessary
-// for the language evolution simulation SDLC project.
+// COMSC-210 | Lab 30 | Gabriel Marquez
+// Description: this file shows the development stage for the language
+// evolution simulation SDLC project.
 //*****************************************************************************
 
 //Include necessary headers for file handling, data structures, etc.
