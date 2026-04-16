@@ -151,8 +151,8 @@ string new_slang(string word) {
 }
 
 //description: print_corpus() prints the contents of corpus to the console
-//arguments: a map (corpus) and a string array (formality)
-//returns: a substring of the passed string (slang for a given word)
+//arguments: a map structure (corpus) and a string array (formality)
+//returns: void
 void print_corpus(map<string, array<list<string>, 3>> corpus) {
     //create formality array to help with output
     array<string, 3> formality = {"Formal", "Casual", "Slang"};

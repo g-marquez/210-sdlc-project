@@ -17,3 +17,30 @@ string new_slang(string word) {
 string w = "word";
 string new_word = new_slang(w);
 //if successful, "Word modified" will be output to the console
+
+Function: print_corpus()
+description: print_corpus() prints the contents of corpus to the console
+arguments: a map structure (corpus) and a string array (formality)
+returns: void
+Unit testing: test to verify each of the nested loops iterates correctly
+void print_corpus(map<string, array<list<string>, 3>> corpus) {
+    //create formality array to help with output
+    array<string, 3> formality = {"iteration 1", "iteration 2", "iteration 3"};
+    for (auto c : corpus) {
+        cout << "Linguistic Concept: " << c.first << "\n";
+        for (int i = 0; i < c.second.size(); ++i) {
+            cout << formality[i] << ": ";
+            auto current = c.second[i];
+            for (auto it = current.begin(); it != current.end(); ++it) {
+                cout << (*it);
+                if (next(it) != current.end()) {
+                    cout << ", ";
+                }
+            }
+            cout << endl;
+        }
+        cout << endl;
+    }
+}
+map<string, array<list<string>, 3>> corpus;
+array<list<string>, 3>> words;
