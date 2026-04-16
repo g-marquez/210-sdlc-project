@@ -32,6 +32,9 @@ int main() {
     //initialize data structures to store language concepts
     map<string, array<list<string>, 3>> corpus;
     array<list<string>, 3> words;
+    list<string> formal;
+    list<string> casual;
+    list<string> slang;
 
     //read data from file and populate map
     ifstream fin ("corpus.txt");
@@ -47,8 +50,29 @@ int main() {
             getline(fin, casualLine);
             getline(fin, slangLine);
 
-            //parse and add each line into list
+            //parse and add words in each line into list
+            //formal list
+            stringstream ss1(formalLine);
+            string word1;
+            while (getline(ss1, word1, ',')) {
+                formal.push_back(word1);
+            }
 
+            //casual list
+            stringstream ss2(casualLine);
+            string word2;
+            while (getline(ss2, word2, ',')) {
+                casual.push_back(word2);
+            }
+
+            //slang list
+            stringstream ss3(casualLine);
+            string word3;
+            while (getline(ss3, word3, ',')) {
+                casual.push_back(word3);
+            }
+
+            words = {formal, casual, slang};
         }
     }
     //else read data into map
