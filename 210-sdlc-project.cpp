@@ -32,9 +32,7 @@ int main() {
     //initialize data structures to store language concepts
     map<string, array<list<string>, 3>> corpus;
     array<list<string>, 3> words;
-    list<string> formal;
-    list<string> casual;
-    list<string> slang;
+    list<string> formal, casual, slang;
 
     //read data from file and populate map
     ifstream fin ("corpus.txt");
@@ -43,8 +41,8 @@ int main() {
         return 1;
     }
     else {
-        string concept;
-        string formalLine, casualLine, slangLine;
+        //extract concept and word data
+        string concept, formalLine, casualLine, slangLine;
         while (getline(fin, concept)) {
             getline(fin, formalLine);
             getline(fin, casualLine);
@@ -73,18 +71,11 @@ int main() {
             }
 
             words = {formal, casual, slang};
+            corpus.insert(make_pair(concept, words));
         }
+        //close file
+        fin.close();
     }
-    //else read data into map
-        //for each line, extract concept and word data
-        //insert word into appropriate formality list in the array
-    //close file
-    //manually populating for the purposes of this mockup
-    list<string> formal = {"greetings", "salutations", "g'day", "hello"};
-    list<string> casual = {"hi", "howdy", "hey", "hiya"};
-    list<string> slang = {"heyyo", "wassup", "whatup", "suhdude"};
-    array<list<string>, 3> words = {formal, casual, slang};
-    corpus.insert(make_pair("Greeting", words));
 
     //print corpus before simulation
     print_corpus(corpus);
@@ -101,7 +92,7 @@ int main() {
                 //new_slang
 
     //manually traversing map for "1 generation" for purpose of mockup
-    //making chances all 50% for purposes of mockup (will adjust in alpha and beta)
+    //making chances all 50% for purposes of mockup (will adjust in beta)
     for (auto &c : corpus) {
         auto &lists = c.second;
         list<string> &formal = lists[FORMAL];
@@ -155,6 +146,7 @@ int main() {
 //arguments: a string (word from the casual or formal list)
 //returns: a substring of the passed string (slang for a given word)
 string new_slang(string word) {
+    //will refine function in beta
     return word.substr(0, word.length() -1);
 }
 
