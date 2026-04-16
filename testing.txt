@@ -1,0 +1,51 @@
+Unit Testing of Functions in 210-sdlc-project.cpp
+
+Function: new_slang()
+description: new_slang() returns a substring of the passed string to simulate
+the creation of a new slang word
+arguments: a string (word from the casual or formal list)
+returns: a substring of the passed string (last char is dropped)
+Unit testing: test to verify that passed string is manipulated
+string new_slang(string word) {
+    //will refine function in beta
+    string new;
+    new = word.substr(0, word.length() -1);
+    if (word != new)
+        cout << "Word modified";
+    return new;
+}
+string w = "word";
+string new_word = new_slang(w);
+//if successful, "Word modified" will be output to the console
+
+Function: print_corpus()
+description: print_corpus() prints the contents of corpus to the console
+arguments: a map structure (corpus) and a string array (formality)
+returns: void
+Unit testing: test to verify each of the nested loops iterates correctly
+void print_corpus(map<string, array<list<string>, 3>> corpus) {
+    //create formality array to help with output
+    array<string, 3> formality = {"list 1", "list 2", "list 3"};
+    for (auto c : corpus) {
+        cout << "the words 'map key' should display here: " << c.first << "\n";
+        for (int i = 0; i < c.second.size(); ++i) {
+            cout << formality[i] << "(this should output the current list number)";
+            auto current = c.second[i];
+            for (auto it = current.begin(); it != current.end(); ++it) {
+                cout << (*it);
+                if (next(it) != current.end()) {
+                    cout << ", ";
+                }
+            }
+            cout << endl;
+        }
+        cout << endl;
+    }
+}
+map<string, array<list<string>, 3>> corpus;
+string key = "map key";
+array<list<string>, 3>> values;
+list<string> list1 = {"first", "list"};
+list<string> list2 = {"second", "list"};
+list<string> list3 = {"third", "list"};
+//if successful, output should display each list of the iteration

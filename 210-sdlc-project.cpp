@@ -1,7 +1,7 @@
 //*****************************************************************************
-// COMSC-210 | Lab 29 | Gabriel Marquez
-// Description: this file outlines the major steps and blocks of code necessary
-// for the language evolution simulation SDLC project.
+// COMSC-210 | Lab 30 | Gabriel Marquez
+// Description: this file shows the development stage for the language
+// evolution simulation SDLC project.
 //*****************************************************************************
 
 //Include necessary headers for file handling, data structures, etc.
@@ -11,9 +11,10 @@
 #include <array>
 #include <fstream>
 #include <random>
+#include <sstream> //for parsing data from corpus.txt
 using namespace std;
 
-//declare global variable
+//declare global variables
 const int GENERATIONS = 25;
 const int FORMAL = 0;
 const int CASUAL = 1;
@@ -28,22 +29,58 @@ int main() {
     //srand for random chances later on in simulation
     srand(time(0));
 
-    //initialize map to store language concepts
+    //initialize data structures to store language concepts
     map<string, array<list<string>, 3>> corpus;
+    array<list<string>, 3> words;
+    list<string> formal, casual, slang;
 
     //read data from file and populate map
-    //if file does not open
-        //print an error and exit
-    //else read data into map
-        //for each line, extract concept and word data
-        //insert word into appropriate formality list in the array
-    //close file
-    //manually populating for the purposes of this mockup
-    list<string> formal = {"greetings", "salutations", "g'day", "hello"};
-    list<string> casual = {"hi", "howdy", "hey", "hiya"};
-    list<string> slang = {"heyyo", "wassup", "whatup", "suhdude"};
-    array<list<string>, 3> words = {formal, casual, slang};
-    corpus.insert(make_pair("Greeting", words));
+    ifstream fin ("corpus.txt");
+    if (!fin.good()) {
+        cout << "ERROR! Please verify file name and directory and restart program.";
+        return 1;
+    }
+    else {
+        //extract concept and word data
+        string concept, formalLine, casualLine, slangLine;
+        while (getline(fin, concept)) {
+            getline(fin, formalLine);
+            getline(fin, casualLine);
+            getline(fin, slangLine);
+
+            //parse and add words in each line into list
+            //formal list
+            stringstream ss1(formalLine);
+            string word1;
+            while (getline(ss1, word1, ',')) {
+                formal.push_back(word1);
+            }
+
+            //casual list
+            stringstream ss2(casualLine);
+            string word2;
+            while (getline(ss2, word2, ',')) {
+                casual.push_back(word2);
+            }
+
+            //slang list
+            stringstream ss3(slangLine);
+            string word3;
+            while (getline(ss3, word3, ',')) {
+                slang.push_back(word3);
+            }
+
+            words = {formal, casual, slang};
+            corpus.insert(make_pair(concept, words));
+
+            //clear lists for next iteration
+            formal.clear();
+            casual.clear();
+            slang.clear();
+        }
+        //close file
+        fin.close();
+    }
 
     //print corpus before simulation
     print_corpus(corpus);
@@ -60,7 +97,7 @@ int main() {
                 //new_slang
 
     //manually traversing map for "1 generation" for purpose of mockup
-    //making chances all 50% for purposes of mockup (will adjust in alpha and beta)
+    //making chances all 50% for purposes of mockup (will adjust in beta)
     for (auto &c : corpus) {
         auto &lists = c.second;
         list<string> &formal = lists[FORMAL];
@@ -114,12 +151,13 @@ int main() {
 //arguments: a string (word from the casual or formal list)
 //returns: a substring of the passed string (slang for a given word)
 string new_slang(string word) {
+    //will refine function in beta
     return word.substr(0, word.length() -1);
 }
 
 //description: print_corpus() prints the contents of corpus to the console
-//arguments: a map (corpus) and a string array (formality)
-//returns: a substring of the passed string (slang for a given word)
+//arguments: a map structure (corpus) and a string array (formality)
+//returns: void
 void print_corpus(map<string, array<list<string>, 3>> corpus) {
     //create formality array to help with output
     array<string, 3> formality = {"Formal", "Casual", "Slang"};
