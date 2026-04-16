@@ -32,6 +32,10 @@ int main() {
     map<string, array<list<string>, 3>> corpus;
 
     //read data from file and populate map
+    ifstream fin ("corpus.txt");
+    if (!fin.good()) {
+        cout << "ERROR! Please verify file name and directory and restart program.";
+    }
     //if file does not open
         //print an error and exit
     //else read data into map
