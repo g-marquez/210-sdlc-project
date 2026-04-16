@@ -25,11 +25,11 @@ returns: void
 Unit testing: test to verify each of the nested loops iterates correctly
 void print_corpus(map<string, array<list<string>, 3>> corpus) {
     //create formality array to help with output
-    array<string, 3> formality = {"iteration 1", "iteration 2", "iteration 3"};
+    array<string, 3> formality = {"list 1", "list 2", "list 3"};
     for (auto c : corpus) {
-        cout << "Linguistic Concept: " << c.first << "\n";
+        cout << "the words 'map key' should display here: " << c.first << "\n";
         for (int i = 0; i < c.second.size(); ++i) {
-            cout << formality[i] << ": ";
+            cout << formality[i] << "(this should output the current list number)";
             auto current = c.second[i];
             for (auto it = current.begin(); it != current.end(); ++it) {
                 cout << (*it);
@@ -43,4 +43,9 @@ void print_corpus(map<string, array<list<string>, 3>> corpus) {
     }
 }
 map<string, array<list<string>, 3>> corpus;
-array<list<string>, 3>> words;
+string key = "map key";
+array<list<string>, 3>> values;
+list<string> list1 = {"first", "list"};
+list<string> list2 = {"second", "list"};
+list<string> list3 = {"third", "list"};
+//if successful, output should display each list of the iteration
