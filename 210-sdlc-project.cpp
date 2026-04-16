@@ -11,9 +11,10 @@
 #include <array>
 #include <fstream>
 #include <random>
+#include <sstream> //for parsing data from corpus.txt
 using namespace std;
 
-//declare global variable
+//declare global variables
 const int GENERATIONS = 25;
 const int FORMAL = 0;
 const int CASUAL = 1;
@@ -28,16 +29,28 @@ int main() {
     //srand for random chances later on in simulation
     srand(time(0));
 
-    //initialize map to store language concepts
+    //initialize data structures to store language concepts
     map<string, array<list<string>, 3>> corpus;
+    array<list<string>, 3> words;
 
     //read data from file and populate map
     ifstream fin ("corpus.txt");
     if (!fin.good()) {
         cout << "ERROR! Please verify file name and directory and restart program.";
+        return 1;
     }
-    //if file does not open
-        //print an error and exit
+    else {
+        string concept;
+        string formalLine, casualLine, slangLine;
+        while (getline(fin, concept)) {
+            getline(fin, formalLine);
+            getline(fin, casualLine);
+            getline(fin, slangLine);
+
+            //parse and add each line into list
+
+        }
+    }
     //else read data into map
         //for each line, extract concept and word data
         //insert word into appropriate formality list in the array
