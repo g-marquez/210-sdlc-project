@@ -12,6 +12,7 @@
 #include <fstream>
 #include <random>
 #include <sstream> //for parsing data from corpus.txt
+#include <algorithm> //for any_of
 using namespace std;
 
 //declare global variables
@@ -135,6 +136,9 @@ int main() {
                 //advance to that word in the list
                 advance(it, word_index);
                 string new_word = new_slang(*it);
+                bool hasWord = any_of(lists[list_index].begin(), 
+                                      lists[list_index].end()
+                                      [new_word](string s){return });
                 slang.push_back(new_word);
             }
         }
