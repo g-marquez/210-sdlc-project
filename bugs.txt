@@ -13,3 +13,6 @@ fix: +i should be ++i
 
 5. segmentation fault due to attempted operations on empty lists
 fix: lowered random chance in lines 102 & 120
+
+6. only first word in the list being modified by new_slang()
+fix: 
