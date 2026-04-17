@@ -101,7 +101,7 @@ int main() {
             //lowered to 30%
             int prob1 = rand() % 100 + 1;
             if (prob1 <= 30) {
-                if ((rand() % 100) < 50) {
+                if ((rand() % 100) < 60) {
                     //slang->casual
                     auto it = slang.begin();
                     casual.push_back(*it);
@@ -118,7 +118,7 @@ int main() {
             //chance for word to die
             //lowered to 20%
             int prob2 = rand() % 100 + 1;
-            if (prob2 <= 20) {
+            if (prob2 <= 10) {
                 //randomly select one of the 3 lists to erase from
                 int rand_list = rand() % 3;
                 auto it = lists[rand_list].begin();
@@ -128,7 +128,7 @@ int main() {
             //chance for new slang to be created
             int prob3 = rand() % 100 + 1;
             if (prob3 <= 50) {
-                //randomly choose the formal or casual index
+                //randomly choose the formal or casual list
                 int list_index = rand() % 2;
                 //choose random word from that list
                 int word_index = rand() % lists[list_index].size();

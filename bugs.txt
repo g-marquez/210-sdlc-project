@@ -12,11 +12,12 @@ fix: added cout statement before and after simulation for clarity
 4. segmentation fault due to outermost loop of simulation (line 92)
 fix: +i should be ++i
 
-5. segmentation fault due to attempted operations on empty lists
-fix: lowered random chance in lines 102 & 120
+5. segmentation fault due to attempted operations on empty lists and also from
+   some lists being emptied more often than others
+fix: adjusted random chance in lines 104 & 121
 
 6. only first word in the list being modified by new_slang()
-fix: modified lines 133-136 to randomly choose a word instead of defaulting to first
+fix: modified lines 133-137 to randomly choose a word instead of defaulting to first
 
 7. improvement on #6 above, but same word still being modified by new_slang()
    and added to the list 
