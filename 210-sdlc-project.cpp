@@ -163,6 +163,21 @@ int main() {
                         slang.push_back(new_word);
                 }
             }
+            //check for duplicates between the 3 lists and delete if found
+            //if in slang, remove from other lists
+            for (const string &word : slang) {
+                // remove from casual
+                for (auto it = casual.begin(); it != casual.end(); ++it) {
+                    if (*it == word)
+                        it = casual.erase(it);
+                }
+
+                // remove from formal
+                for (auto it = formal.begin(); it != formal.end(); ++it) {
+                    if (*it == word)
+                        it = formal.erase(it);
+                }
+            }
         }
     }
 

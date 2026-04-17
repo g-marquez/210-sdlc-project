@@ -53,6 +53,10 @@ fix: add checks for an empty list before all those instances
 14. some lists empty after the 25 iterations (happens 0-2 times on average per run)
 fix: instead of checking if the list is empty, check to see if it has >1 element
 
+15. some duplicates appear between the formal, casual, and slang lists by the end of 
+    the 25 iterations (don't want slang to also be casual or formal)
+fix: at the end of for (auto &c : corpus) in line 94
+
 
 things to consider for future implementations:
 -should modified words be removed from their original list?
