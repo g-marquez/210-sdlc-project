@@ -34,9 +34,16 @@ bool hasWord = any_of(slang.begin(), slang.end(),
 fix: replaced one with another word (meal -> entree)
 
 10. words that are 3 or less characters long don't make sense if modified by new_slang()
+    (e.g. hey->he)
 fix: 
 
 
 things to consider for future implementations:
 -should modified words be removed from their original list?
-    
+    (e.g. cash->cas, should cash be erased?)
+    I think no, as this typically does not happen in tandem in real life
+-should there be a way to bring back dead words?
+    Yes! Cool idea, maybe keep a 4th list of dead words with a chance to bring
+    back in each iteration? How to make sure the words are brought back
+    into the correct linguistic concept? Don't want 'hungry' paired with the 'love' key.
+    Maybe keep a separate map instead of a list?
