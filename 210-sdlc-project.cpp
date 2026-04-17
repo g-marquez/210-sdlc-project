@@ -137,8 +137,7 @@ int main() {
                 advance(it, word_index);
                 string new_word = new_slang(*it);
                 //check if the new word already exists in the list
-                bool hasWord = any_of(lists[list_index].begin(), 
-                                      lists[list_index].end(),
+                bool hasWord = any_of(slang.begin(), slang.end(),
                                       [new_word](string s){return s == new_word;});
                 //if not, add it to the list
                 if (!hasWord)

@@ -24,3 +24,8 @@ fix: added the following to check if the modified word already exists in the lis
 bool hasWord = any_of(lists[list_index].begin(), 
                       lists[list_index].end(),
                       [new_word](string s){return s == new_word;});
+
+8. #7 works, but I was checking the wrong list (duplicates still showed up)
+fix: corrected arguments in any_of() as shown below
+bool hasWord = any_of(slang.begin(), slang.end(),
+                    [new_word](string s){return s == new_word;});
