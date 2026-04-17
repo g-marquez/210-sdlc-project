@@ -1,6 +1,6 @@
 1. lists were overloading and becoming too long, program force-stopped
 fix: added .clear() statements for formal, casual, and slang lists 
-in lines 77-79
+in lines 78-80
 
 2. print_corpus() output was not displaying words properly to the console
    (some too long, some empty)
@@ -9,7 +9,7 @@ fix: adjusted corpus.txt to not have new lines between each key:value block
 3. print_corpus() output too difficut to read (just a long block of text)
 fix: added cout statement before and after simulation for clarity
 
-4. segmentation fault due to outermost loop of simulation (line 92)
+4. segmentation fault due to outermost loop of simulation (line 93)
 fix: +i should be ++i
 
 5. segmentation fault due to attempted operations on empty lists and also from

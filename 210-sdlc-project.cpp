@@ -18,7 +18,7 @@ using namespace std;
 //declare global variables
 const int GENERATIONS = 25;
 const int FORMAL = 0;
-const int CASUAL = 1;
+const int CASUAL, LIST_MIN = 1;
 const int SLANG  = 2;
 
 //declare function prototype(s) for different language changes
@@ -103,7 +103,7 @@ int main() {
             if (prob1 <= 40) {
                 if ((rand() % 100) < 60) {
                     //slang->casual
-                    if (slang.size() > 1) {
+                    if (slang.size() > LIST_MIN) {
                         //choose random word from that list
                         int word_index = rand() % slang.size();
                         auto it = slang.begin();
@@ -115,7 +115,7 @@ int main() {
                 }
                 else {
                     //casual->formal
-                    if (casual.size() > 1) {
+                    if (casual.size() > LIST_MIN) {
                         //choose random word from that list
                         int word_index = rand() % casual.size();
                         auto it = casual.begin();
@@ -133,7 +133,7 @@ int main() {
             if (prob2 <= 10) {
                 //randomly select one of the 3 lists to erase from
                 int list_index = rand() % 3;
-                if (lists[list_index].size() > 1) {
+                if (lists[list_index].size() > LIST_MIN) {
                     //choose random word from that list
                     int word_index = rand() % lists[list_index].size();
                     auto it = lists[list_index].begin();
@@ -148,7 +148,7 @@ int main() {
             if (prob3 <= 50) {
                 //randomly choose the formal or casual list
                 int list_index = rand() % 2;
-                if (lists[list_index].size() > 1) {
+                if (lists[list_index].size() > LIST_MIN) {
                     //choose random word from that list
                     int word_index = rand() % lists[list_index].size();
                     auto it = lists[list_index].begin();
@@ -165,7 +165,7 @@ int main() {
             }
             //check for duplicates between the 3 lists and delete if found
             //if in slang, remove from other lists
-            for (const string &word : slang) {
+            for (string word : slang) {
                 // remove from casual
                 for (auto it = casual.begin(); it != casual.end(); ++it) {
                     if (*it == word)
@@ -198,7 +198,7 @@ string new_slang(string word) {
         return word + word;
     //otherwise just remove the last letter
     else 
-    return word.substr(0, word.length() -1);
+    return word.substr(0, word.length() - 1);
 }
 
 //description: print_corpus() prints the contents of corpus to the console
