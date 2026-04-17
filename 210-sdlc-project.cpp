@@ -103,20 +103,28 @@ int main() {
             if (prob1 <= 40) {
                 if ((rand() % 100) < 60) {
                     //slang->casual
+                    //choose random word from that list
+                    int word_index = rand() % slang.size();
                     auto it = slang.begin();
+                    //advance to that word in the list and move it
+                    advance(it, word_index);
                     casual.push_back(*it);
                     slang.erase(it);
                 }
                 else {
                     //casual->formal
+                    //choose random word from that list
+                    int word_index = rand() % casual.size();
                     auto it = casual.begin();
+                    //advance to that word in the list and move it
+                    advance(it, word_index);
                     formal.push_back(*it);
                     casual.erase(it);
                 }
             }
 
             //chance for word to die
-            //lowered to 20%
+            //lowered to 10%
             int prob2 = rand() % 100 + 1;
             if (prob2 <= 10) {
                 //randomly select one of the 3 lists to erase from
@@ -124,7 +132,7 @@ int main() {
                 //choose random word from that list
                 int word_index = rand() % lists[list_index].size();
                 auto it = lists[list_index].begin();
-                //advance to that word in the list
+                //advance to that word in the list and delete it
                 advance(it, word_index);
                 lists[list_index].erase(it);
             }
