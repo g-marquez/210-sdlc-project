@@ -50,6 +50,9 @@ fix: added indents for formal, casual, and slang output lines
     on one of my lists when .size() is 0 (I have multiple rand() % lines)
 fix: add checks for an empty list before all those instances
 
+14. some lists empty after the 25 iterations (happens 0-2 times on average per run)
+fix: 
+
 
 things to consider for future implementations:
 -should modified words be removed from their original list?

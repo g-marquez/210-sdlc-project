@@ -103,23 +103,27 @@ int main() {
             if (prob1 <= 40) {
                 if ((rand() % 100) < 60) {
                     //slang->casual
-                    //choose random word from that list
-                    int word_index = rand() % slang.size();
-                    auto it = slang.begin();
-                    //advance to that word in the list and move it
-                    advance(it, word_index);
-                    casual.push_back(*it);
-                    slang.erase(it);
+                    if (!slang.empty()) {
+                        //choose random word from that list
+                        int word_index = rand() % slang.size();
+                        auto it = slang.begin();
+                        //advance to that word in the list and move it
+                        advance(it, word_index);
+                        casual.push_back(*it);
+                        slang.erase(it);
+                    }
                 }
                 else {
                     //casual->formal
-                    //choose random word from that list
-                    int word_index = rand() % casual.size();
-                    auto it = casual.begin();
-                    //advance to that word in the list and move it
-                    advance(it, word_index);
-                    formal.push_back(*it);
-                    casual.erase(it);
+                    if (!casual.empty()) {
+                        //choose random word from that list
+                        int word_index = rand() % casual.size();
+                        auto it = casual.begin();
+                        //advance to that word in the list and move it
+                        advance(it, word_index);
+                        formal.push_back(*it);
+                        casual.erase(it);
+                    } 
                 }
             }
 
@@ -129,12 +133,14 @@ int main() {
             if (prob2 <= 10) {
                 //randomly select one of the 3 lists to erase from
                 int list_index = rand() % 3;
-                //choose random word from that list
-                int word_index = rand() % lists[list_index].size();
-                auto it = lists[list_index].begin();
-                //advance to that word in the list and delete it
-                advance(it, word_index);
-                lists[list_index].erase(it);
+                if (!lists[list_index].empty()) {
+                    //choose random word from that list
+                    int word_index = rand() % lists[list_index].size();
+                    auto it = lists[list_index].begin();
+                    //advance to that word in the list and delete it
+                    advance(it, word_index);
+                    lists[list_index].erase(it);
+                }
             }
 
             //chance for new slang to be created
@@ -142,18 +148,20 @@ int main() {
             if (prob3 <= 50) {
                 //randomly choose the formal or casual list
                 int list_index = rand() % 2;
-                //choose random word from that list
-                int word_index = rand() % lists[list_index].size();
-                auto it = lists[list_index].begin();
-                //advance to that word in the list
-                advance(it, word_index);
-                string new_word = new_slang(*it);
-                //check if the new word already exists in the list
-                bool hasWord = any_of(slang.begin(), slang.end(),
-                                      [new_word](string s){return s == new_word;});
-                //if not, add it to the list
-                if (!hasWord)
-                    slang.push_back(new_word);
+                if (!lists[list_index].empty()) {
+                    //choose random word from that list
+                    int word_index = rand() % lists[list_index].size();
+                    auto it = lists[list_index].begin();
+                    //advance to that word in the list
+                    advance(it, word_index);
+                    string new_word = new_slang(*it);
+                    //check if the new word already exists in the list
+                    bool hasWord = any_of(slang.begin(), slang.end(),
+                                         [new_word](string s){return s == new_word;});
+                    //if not, add it to the list
+                    if (!hasWord)
+                        slang.push_back(new_word);
+                }
             }
         }
     }
