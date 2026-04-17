@@ -6,4 +6,5 @@ in lines 77-79
 fix: adjusted corpus.txt to not have new lines between each key:value block
 
 3. print_corpus() output too difficut to read (just a long block of text)
-fix: added in
+fix: added cout statement before simulation
+

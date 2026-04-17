@@ -83,65 +83,56 @@ int main() {
     }
 
     //print corpus before simulation
-    cout << "Beginning simulation..." << endl;
     print_corpus(corpus);
+    cout << endl << "Beginning simulation..." << endl;
     
     //begin language evolution simulation
     //for 25 time intervals (generations)
-        //iterate through each concept in the map
-        //for each concept
-            //chance for word to move from one list to another
-                //slang->casual, casual->formal
+    for (int i = 0; i < GENERATIONS; +i) {
+        for (auto &c : corpus) {
+            auto &lists = c.second;
+            list<string> &formal = lists[FORMAL];
+            list<string> &casual = lists[CASUAL];
+            list<string> &slang  = lists[SLANG];
+            
+            //chance for word to move from slang->casual or casual->formal
+            int prob1 = rand() % 100 + 1;
+            if (prob1 <= 50) {
+                if ((rand() % 100) < 50) {
+                    //slang->casual
+                    auto it = slang.begin();
+                    casual.push_back(*it);
+                    slang.erase(it);
+                }
+                else {
+                    //casual->formal
+                    auto it = casual.begin();
+                    formal.push_back(*it);
+                    casual.erase(it);
+                }
+            }
+
             //chance for word to die
-                //erase word from list
+            int prob2 = rand() % 100 + 1;
+            if (prob2 <= 50) {
+                //randomly select one of the 3 lists to erase from
+                int rand_list = rand() % 3;
+                auto it = lists[rand_list].begin();
+                lists[rand_list].erase(it);
+            }
+
             //chance for new slang to be created
-                //new_slang
-
-    //manually traversing map for "1 generation" for purpose of mockup
-    //making chances all 50% for purposes of mockup (will adjust in beta)
-    for (auto &c : corpus) {
-        auto &lists = c.second;
-        list<string> &formal = lists[FORMAL];
-        list<string> &casual = lists[CASUAL];
-        list<string> &slang  = lists[SLANG];
-        
-        //chance for word to move from slang->casual or casual->formal
-        int prob1 = rand() % 100 + 1;
-        if (prob1 <= 50) {
-            if ((rand() % 100) < 50) {
-                //slang->casual
-                auto it = slang.begin();
-                casual.push_back(*it);
-                slang.erase(it);
+            int prob3 = rand() % 100 + 1;
+            if (prob3 <= 50) {
+                //randomly choose the formal or casual index
+                int rand_index = rand() % 2;
+                auto it = lists[rand_index].begin();
+                string new_word = new_slang(*it);
+                slang.push_back(new_word);
             }
-            else {
-                //casual->formal
-                auto it = casual.begin();
-                formal.push_back(*it);
-                casual.erase(it);
-            }
-        }
-
-        //chance for word to die
-        int prob2 = rand() % 100 + 1;
-        if (prob2 <= 50) {
-            //randomly select one of the 3 lists to erase from
-            int rand_list = rand() % 3;
-            auto it = lists[rand_list].begin();
-            lists[rand_list].erase(it);
-        }
-
-        //chance for new slang to be created
-        int prob3 = rand() % 100 + 1;
-        if (prob3 <= 50) {
-            //randomly choose the formal or casual index
-            int rand_index = rand() % 2;
-            auto it = lists[rand_index].begin();
-            string new_word = new_slang(*it);
-            slang.push_back(new_word);
         }
     }
-
+    
     //print corpus at the end of simulation
     print_corpus(corpus);
 }
