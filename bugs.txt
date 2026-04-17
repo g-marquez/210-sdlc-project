@@ -29,3 +29,14 @@ bool hasWord = any_of(lists[list_index].begin(),
 fix: corrected arguments in any_of() as shown below
 bool hasWord = any_of(slang.begin(), slang.end(),
                     [new_word](string s){return s == new_word;});
+
+9. found duplicate in corpus.txt under food (meal was there twice)
+fix: replaced one with another word (meal -> entree)
+
+10. words that are 3 or less characters long don't make sense if modified by new_slang()
+fix: 
+
+
+things to consider for future implementations:
+-should modified words be removed from their original list?
+    
