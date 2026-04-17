@@ -36,12 +36,17 @@ fix: replaced one with another word (meal -> entree)
 
 10. words that are 3 or less characters long don't make sense if modified by new_slang()
     (e.g. hey->he)
-fix: implement conditional that reduplicates the word and extends the ending
+fix: implement conditional that reduplicates the word
 if (word.length() <= 3)
-        return word + word + word.back();
+        return word + word;
 
 11. word movement and death only happen to first element
 fix: implemented same logic as #6 above to randomly choose a word from the list
+
+12. print_corpus() output format too blocky
+fix: added indents for formal, casual, and slang output lines
+
+13. arithmetic exception: 
 
 
 things to consider for future implementations:

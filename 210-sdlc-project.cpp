@@ -90,7 +90,7 @@ int main() {
     
     //begin language evolution simulation
     //for 25 time intervals (generations)
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < GENERATIONS; ++i) {
         for (auto &c : corpus) {
             auto &lists = c.second;
             list<string> &formal = lists[FORMAL];
@@ -159,8 +159,8 @@ int main() {
     }
 
     //print corpus at the end of simulation
-    //testing with 3 iterations for now
-    cout << "After 3 generations: " << endl << endl << endl;
+    //testing with 25 iterations now
+    cout << "After 25 generations: " << endl << endl << endl;
     print_corpus(corpus);
 }
 
@@ -171,9 +171,9 @@ int main() {
 //returns: a substring of the passed string (slang for a given word)
 string new_slang(string word) {
     //if the passed word is 3 or less letters long
-    //reduplicate word with an extra letter at the end
+    //reduplicate word
     if (word.length() <= 3)
-        return word + word + word.back();
+        return word + word;
     //otherwise just remove the last letter
     else 
     return word.substr(0, word.length() -1);
@@ -188,7 +188,7 @@ void print_corpus(map<string, array<list<string>, 3>> corpus) {
     for (auto c : corpus) {
         cout << "Linguistic Concept: " << c.first << "\n";
         for (int i = 0; i < c.second.size(); ++i) {
-            cout << formality[i] << ": ";
+            cout << "\t" << formality[i] << ": ";
             auto current = c.second[i];
             for (auto it = current.begin(); it != current.end(); ++it) {
                 cout << (*it);
