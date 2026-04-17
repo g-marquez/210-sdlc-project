@@ -83,12 +83,13 @@ int main() {
     }
 
     //print corpus before simulation
+    cout << "Original corpus: " << endl;
     print_corpus(corpus);
     cout << endl << "Beginning simulation..." << endl;
     
     //begin language evolution simulation
     //for 25 time intervals (generations)
-    for (int i = 0; i < GENERATIONS; +i) {
+    for (int i = 0; i < GENERATIONS; ++i) {
         for (auto &c : corpus) {
             auto &lists = c.second;
             list<string> &formal = lists[FORMAL];
@@ -132,8 +133,9 @@ int main() {
             }
         }
     }
-    
+
     //print corpus at the end of simulation
+    cout << "After 25 generations: " << endl;
     print_corpus(corpus);
 }
 
