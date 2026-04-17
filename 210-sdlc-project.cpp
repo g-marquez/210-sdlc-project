@@ -89,7 +89,7 @@ int main() {
     
     //begin language evolution simulation
     //for 25 time intervals (generations)
-    for (int i = 0; i < GENERATIONS; ++i) {
+    for (int i = 0; i < 3; ++i) {
         for (auto &c : corpus) {
             auto &lists = c.second;
             list<string> &formal = lists[FORMAL];
@@ -97,8 +97,9 @@ int main() {
             list<string> &slang  = lists[SLANG];
             
             //chance for word to move from slang->casual or casual->formal
+            //lowered to 30%
             int prob1 = rand() % 100 + 1;
-            if (prob1 <= 50) {
+            if (prob1 <= 30) {
                 if ((rand() % 100) < 50) {
                     //slang->casual
                     auto it = slang.begin();
@@ -114,8 +115,9 @@ int main() {
             }
 
             //chance for word to die
+            //lowered to 20%
             int prob2 = rand() % 100 + 1;
-            if (prob2 <= 50) {
+            if (prob2 <= 20) {
                 //randomly select one of the 3 lists to erase from
                 int rand_list = rand() % 3;
                 auto it = lists[rand_list].begin();

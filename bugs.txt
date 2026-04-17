@@ -11,4 +11,5 @@ fix: added cout statement before and after simulation for clarity
 4. segmentation fault due to outermost loop of simulation (line 92)
 fix: +i should be ++i
 
-5. 
+5. segmentation fault due to attempted operations on empty lists
+fix: lowered random chance in lines 102 & 120
