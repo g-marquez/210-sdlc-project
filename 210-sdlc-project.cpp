@@ -83,6 +83,7 @@ int main() {
     }
 
     //print corpus before simulation
+    cout << "Beginning simulation..." << endl;
     print_corpus(corpus);
     
     //begin language evolution simulation
