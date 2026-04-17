@@ -98,9 +98,9 @@ int main() {
             list<string> &slang  = lists[SLANG];
             
             //chance for word to move from slang->casual or casual->formal
-            //lowered to 30%
+            //lowered to 40%
             int prob1 = rand() % 100 + 1;
-            if (prob1 <= 30) {
+            if (prob1 <= 40) {
                 if ((rand() % 100) < 60) {
                     //slang->casual
                     auto it = slang.begin();
@@ -120,9 +120,13 @@ int main() {
             int prob2 = rand() % 100 + 1;
             if (prob2 <= 10) {
                 //randomly select one of the 3 lists to erase from
-                int rand_list = rand() % 3;
-                auto it = lists[rand_list].begin();
-                lists[rand_list].erase(it);
+                int list_index = rand() % 3;
+                //choose random word from that list
+                int word_index = rand() % lists[list_index].size();
+                auto it = lists[list_index].begin();
+                //advance to that word in the list
+                advance(it, word_index);
+                lists[list_index].erase(it);
             }
 
             //chance for new slang to be created
