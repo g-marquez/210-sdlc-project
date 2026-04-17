@@ -39,6 +39,7 @@ fix: replaced one with another word (meal -> entree)
 fix: 
 
 11. word movement and death only happen to first element
+fix: implemented same logic as #6 above to randomly choose a word from the list
 
 
 things to consider for future implementations:
