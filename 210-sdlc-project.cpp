@@ -136,10 +136,13 @@ int main() {
                 //advance to that word in the list
                 advance(it, word_index);
                 string new_word = new_slang(*it);
+                //check if the new word already exists in the list
                 bool hasWord = any_of(lists[list_index].begin(), 
-                                      lists[list_index].end()
-                                      [new_word](string s){return });
-                slang.push_back(new_word);
+                                      lists[list_index].end(),
+                                      [new_word](string s){return s == new_word;});
+                //if not, add it to the list
+                if (!hasWord)
+                    slang.push_back(new_word);
             }
         }
     }

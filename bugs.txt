@@ -2,7 +2,8 @@
 fix: added .clear() statements for formal, casual, and slang lists 
 in lines 77-79
 
-2. print_corpus() output was not displaying words properly to the console (some too long, some empty)
+2. print_corpus() output was not displaying words properly to the console
+   (some too long, some empty)
 fix: adjusted corpus.txt to not have new lines between each key:value block
 
 3. print_corpus() output too difficut to read (just a long block of text)
@@ -18,4 +19,8 @@ fix: lowered random chance in lines 102 & 120
 fix: modified lines 133-136 to randomly choose a word instead of defaulting to first
 
 7. improvement on #6 above, but same word still being modified by new_slang()
-fix:
+   and added to the list 
+fix: added the following to check if the modified word already exists in the list (line 140)
+bool hasWord = any_of(lists[list_index].begin(), 
+                      lists[list_index].end(),
+                      [new_word](string s){return s == new_word;});
