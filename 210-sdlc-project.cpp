@@ -130,8 +130,10 @@ int main() {
                 //randomly choose the formal or casual index
                 int list_index = rand() % 2;
                 //choose random word from that list
-                int word_index = lists[list_index][rand() % (lists[list_index]).size()];
+                int word_index = rand() % lists[list_index].size();
                 auto it = lists[list_index].begin();
+                //advance to that word in the list
+                advance(it, word_index);
                 string new_word = new_slang(*it);
                 slang.push_back(new_word);
             }
@@ -140,7 +142,7 @@ int main() {
 
     //print corpus at the end of simulation
     //testing with 3 iterations for now
-    cout << "After 3 generations: " << endl;
+    cout << "After 3 generations: " << endl << endl << endl;
     print_corpus(corpus);
 }
 

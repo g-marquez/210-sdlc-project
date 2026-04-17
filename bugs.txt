@@ -15,4 +15,4 @@ fix: +i should be ++i
 fix: lowered random chance in lines 102 & 120
 
 6. only first word in the list being modified by new_slang()
-fix: 
+fix: modified lines 133-136 to randomly choose a word instead of defaulting to first
