@@ -1,0 +1,82 @@
+1. lists were overloading and becoming too long, program force-stopped
+fix: added .clear() statements for formal, casual, and slang lists 
+in lines 78-80
+
+2. print_corpus() output was not displaying words properly to the console
+   (some too long, some empty)
+fix: adjusted corpus.txt to not have new lines between each key:value block
+
+3. print_corpus() output too difficut to read (just a long block of text)
+fix: added cout statement before and after simulation for clarity
+
+4. segmentation fault due to outermost loop of simulation (line 93)
+fix: +i should be ++i
+
+5. segmentation fault due to attempted operations on empty lists and also from
+   some lists being emptied more often than others
+fix: adjusted random chance in lines 103, 104, & 133
+
+6. only first word in the list being modified by new_slang()
+fix: modified lines 137-141 to randomly choose a word instead of defaulting to first
+
+7. improvement on #6 above, but same word still being modified by new_slang()
+   and added to the list 
+fix: added the following to check if the modified word already exists in the list (line 140)
+bool hasWord = any_of(lists[list_index].begin(), 
+                      lists[list_index].end(),
+                      [new_word](string s){return s == new_word;});
+
+8. #7 works, but I was checking the wrong list (duplicates still showed up)
+fix: corrected arguments in any_of() as shown below
+bool hasWord = any_of(slang.begin(), slang.end(),
+                    [new_word](string s){return s == new_word;});
+
+9. found duplicate in corpus.txt under food (meal was there twice)
+fix: replaced one with another word (meal -> entree)
+
+10. words that are 3 or less characters long don't make sense if modified by new_slang()
+    (e.g. hey->he)
+fix: implement conditional that reduplicates the word
+if (word.length() <= 3)
+        return word + word;
+
+11. word movement and death only happen to first element of a list
+fix: implemented same logic as #6 above to randomly choose a word from the list
+
+12. print_corpus() output format too blocky
+fix: added indents for formal, casual, and slang output lines (line 213)
+
+13. arithmetic exception: I think it's whenever my program tries to do an operation
+    on one of my lists when .size() is 0 (I have multiple rand() % lines)
+fix: add checks for an empty list before all those instances
+
+14. some lists empty after the 25 iterations (happens 0-2 times on average per run)
+fix: instead of checking if the list is empty, check to see if it has >1 element
+
+15. some duplicates appear between the formal, casual, and slang lists by the end of 
+    the 25 iterations (don't want slang to also be casual or formal)
+fix: at the end of for (auto &c : corpus) in line 94, add the following checks
+for (string word : slang) {
+    // remove from casual
+    for (auto it = casual.begin(); it != casual.end(); ++it) {
+        if (*it == word)
+            it = casual.erase(it);
+    }
+
+    // remove from formal
+    for (auto it = formal.begin(); it != formal.end(); ++it) {
+        if (*it == word)
+            it = formal.erase(it);
+    }
+}
+
+
+things to consider for future implementations:
+-should modified words be removed from their original list?
+    (e.g. cash->cas, should 'cash' be erased?)
+    I think no, as this typically does not happen in tandem in real life
+-should there be a way to bring back dead words?
+    Yes! Cool idea, maybe keep a 4th list of dead words with a chance to bring
+    back in each iteration? How to make sure the words are brought back
+    into the correct linguistic concept? Don't want 'hungry' paired with the 'love' key.
+    Maybe keep a separate map instead of a list?

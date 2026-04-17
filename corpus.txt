@@ -31,7 +31,7 @@ ignorance,folly,imbecility,absurdity
 dumb,idiot,clueless,confused
 buffoon,moron,smoothbrain,airhead
 food
-cuisine,meal,provisions,nourishment
+cuisine,entree,provisions,nourishment
 food,eats,meal,snack
 grub,chow,munchies,noms
 money
