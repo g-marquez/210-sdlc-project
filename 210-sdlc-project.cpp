@@ -103,7 +103,7 @@ int main() {
             if (prob1 <= 40) {
                 if ((rand() % 100) < 60) {
                     //slang->casual
-                    if (!slang.empty()) {
+                    if (slang.size() > 1) {
                         //choose random word from that list
                         int word_index = rand() % slang.size();
                         auto it = slang.begin();
@@ -115,7 +115,7 @@ int main() {
                 }
                 else {
                     //casual->formal
-                    if (!casual.empty()) {
+                    if (casual.size() > 1) {
                         //choose random word from that list
                         int word_index = rand() % casual.size();
                         auto it = casual.begin();
@@ -133,7 +133,7 @@ int main() {
             if (prob2 <= 10) {
                 //randomly select one of the 3 lists to erase from
                 int list_index = rand() % 3;
-                if (!lists[list_index].empty()) {
+                if (lists[list_index].size() > 1) {
                     //choose random word from that list
                     int word_index = rand() % lists[list_index].size();
                     auto it = lists[list_index].begin();
@@ -148,7 +148,7 @@ int main() {
             if (prob3 <= 50) {
                 //randomly choose the formal or casual list
                 int list_index = rand() % 2;
-                if (!lists[list_index].empty()) {
+                if (lists[list_index].size() > 1) {
                     //choose random word from that list
                     int word_index = rand() % lists[list_index].size();
                     auto it = lists[list_index].begin();
@@ -167,7 +167,6 @@ int main() {
     }
 
     //print corpus at the end of simulation
-    //testing with 25 iterations now
     cout << "After 25 generations: " << endl << endl << endl;
     print_corpus(corpus);
 }

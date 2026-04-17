@@ -51,7 +51,7 @@ fix: added indents for formal, casual, and slang output lines
 fix: add checks for an empty list before all those instances
 
 14. some lists empty after the 25 iterations (happens 0-2 times on average per run)
-fix: 
+fix: instead of checking if the list is empty, check to see if it has >1 element
 
 
 things to consider for future implementations:
