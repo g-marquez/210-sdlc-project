@@ -20,10 +20,11 @@ const int GENERATIONS = 25;
 const int FORMAL = 0;
 const int CASUAL, LIST_MIN = 1;
 const int SLANG  = 2;
+const int ARR_SIZE = 3;
 
 //declare function prototype(s) for different language changes
 string new_slang(string);
-void print_corpus(map<string, array<list<string>, 3>>);
+void print_corpus(map<string, array<list<string>, ARR_SIZE>>);
 
 //define main function
 int main() {
@@ -31,8 +32,8 @@ int main() {
     srand(time(0));
 
     //initialize data structures to store language concepts
-    map<string, array<list<string>, 3>> corpus;
-    array<list<string>, 3> words;
+    map<string, array<list<string>, ARR_SIZE>> corpus;
+    array<list<string>, ARR_SIZE> words;
     list<string> formal, casual, slang;
 
     //read data from file and populate map
@@ -204,7 +205,7 @@ string new_slang(string word) {
 //description: print_corpus() prints the contents of corpus to the console
 //arguments: a map structure (corpus) and a string array (formality)
 //returns: void
-void print_corpus(map<string, array<list<string>, 3>> corpus) {
+void print_corpus(map<string, array<list<string>, ARR_SIZE>> corpus) {
     //create formality array to help with output
     array<string, 3> formality = {"Formal", "Casual", "Slang"};
     for (auto c : corpus) {
