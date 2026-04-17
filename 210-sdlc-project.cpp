@@ -170,7 +170,12 @@ int main() {
 //arguments: a string (word from the casual or formal list)
 //returns: a substring of the passed string (slang for a given word)
 string new_slang(string word) {
-    //will refine function in beta
+    //if the passed word is 3 or less letters long
+    //reduplicate word with an extra letter at the end
+    if (word.length() <= 3)
+        return word + word + word.back();
+    //otherwise just remove the last letter
+    else 
     return word.substr(0, word.length() -1);
 }
 

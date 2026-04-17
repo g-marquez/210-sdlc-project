@@ -36,7 +36,9 @@ fix: replaced one with another word (meal -> entree)
 
 10. words that are 3 or less characters long don't make sense if modified by new_slang()
     (e.g. hey->he)
-fix: 
+fix: implement conditional that reduplicates the word and extends the ending
+if (word.length() <= 3)
+        return word + word + word.back();
 
 11. word movement and death only happen to first element
 fix: implemented same logic as #6 above to randomly choose a word from the list
